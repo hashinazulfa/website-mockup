@@ -10,6 +10,5 @@ NOTE 4 MEDIA QUERIES:
     - navbar udh, jd tinggal content lain ke bawah kecuali footer
 
 
-SISI TO-DO: 
+SISI TO-DO:
 -Belajar Sass & tambahin animasi sass ke .learn-more-button
--Buat media query utk footer
