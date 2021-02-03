@@ -98,15 +98,13 @@ body {
 .homepage-footer {
     color: #f5f5f5;
     background-color: #2b2a2a;
-    width: 100%;
-    line-height: 50px;
+    line-height: 35px;
 }
 
 .footer-navigation {
     display: flexbox;
     margin-left: 3rem;
     padding: 3rem;
-    width: 25%;
 }
 
 .footer-line {
@@ -132,13 +130,22 @@ body {
     color: rgb(0, 153, 255) !important;
 }
 
+.footer-navigation hr {
+    width: 10rem;
+}
+
 .footer-clock {
     display: flexbox;
-    width: 40%;
     padding: 3rem;
 }
 
 .iframe-clock {
     position: relative;
     top: 1.5rem;
+}
+
+@media only screen and (max-width: 959px) {
+    .footer-clock {
+        margin-left: 3rem;
+    }
 }
