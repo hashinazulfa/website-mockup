@@ -31,14 +31,14 @@ body {
 .giant-pic {
     display: inline-block;
     height: 84vh;
-    width: 207.9vh;
+    width: 100%;
 }
 
 .img-box-shadow {
-    box-shadow: inset 0 13px 9px -7px #ffffff;
+    box-shadow: inset 0 0.8rem 0.6rem -0.4rem #ffffff;
     position: absolute;
     height: 84vh;
-    width: 207.9vh;
+    width: 100%;
     top: 0;
     left: 0;
 }
@@ -64,11 +64,10 @@ body {
 }
 
 .center-button {
-    height: 15rem;
-    width: 15rem;
+    display: flexbox;
     position: absolute;
-    bottom: -7.45rem;
-    right: 35rem;
+    bottom: -11.5%;
+    left: 42.5%;
 }
 
 .learn-more-button {
@@ -77,9 +76,6 @@ body {
     border-radius: 50%;
     height: 8rem;
     width: 8rem;
-    position: absolute;
-    top: 3.55rem;
-    left: 3.5rem;
 }
 
 /* Carousel & Company Profile */
@@ -98,7 +94,7 @@ body {
 .homepage-footer {
     color: #f5f5f5;
     background-color: #2b2a2a;
-    line-height: 35px;
+    line-height: 218%;
 }
 
 .footer-navigation {
