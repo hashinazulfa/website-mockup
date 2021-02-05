@@ -1,4 +1,9 @@
+$bgLight:#eaeaea;
+$bgDark:#2b2a2a;
+$hoverColor:rgb(0, 153, 255) !important;
+
 body {
+    background-color: $bgLight;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -15,10 +20,10 @@ body {
     display: flex;
     text-align: center;
     padding: 1.5rem 2.5rem;
-}
 
-.nav-adjustments a:hover {
-    color: rgb(0, 153, 255)!important;
+    a:hover {
+        color: $hoverColor;
+    }
 }
 
 /* Homepage Picture Section & About Us */
@@ -71,17 +76,30 @@ body {
 }
 
 .learn-more-button {
-    background-color: #eaeaea;
+    background-color: $bgLight;
     border: none;
     border-radius: 50%;
     height: 8rem;
     width: 8rem;
 }
 
+#hidden-div {
+    background-color: $bgLight;
+    display: none;
+    padding: 10% 5% 5% 5%;
+    position: relative;
+    text-align: center;
+    z-index: -10;
+    p {
+        margin: 0 15%;
+        vertical-align: middle;
+    }
+}
+
 /* Carousel & Company Profile */
 
 .carousel-profile {
-    background-color: #eaeaea;
+    background-color: $bgLight;
     padding: 5rem 3rem 3rem;
 }
 
@@ -93,7 +111,7 @@ body {
 
 .homepage-footer {
     color: #f5f5f5;
-    background-color: #2b2a2a;
+    background-color: $bgDark;
     line-height: 218%;
 }
 
@@ -101,6 +119,21 @@ body {
     display: flexbox;
     margin-left: 3rem;
     padding: 3rem;
+    ul {
+        list-style-type: none;
+        padding: 1rem 0 0 0;
+    }
+    a {
+        color: #f5f5f5;
+        font-size: 0.95rem;
+        text-decoration: none;
+        &:hover {
+            color: $hoverColor;
+        }
+    }
+    hr {
+        width: 10rem;
+    }
 }
 
 .footer-line {
@@ -109,25 +142,6 @@ body {
     top: 0.2rem;
     width: 8rem;
     border-top: 0.3rem solid #00adb5;
-}
-
-.footer-navigation ul{
-    list-style-type: none;
-    padding: 1rem 0 0 0;
-}
-
-.footer-navigation a {
-    color: #f5f5f5;
-    font-size: 0.95rem;
-    text-decoration: none;
-}
-
-.footer-navigation a:hover {
-    color: rgb(0, 153, 255) !important;
-}
-
-.footer-navigation hr {
-    width: 10rem;
 }
 
 .footer-clock {
@@ -139,6 +153,8 @@ body {
     position: relative;
     top: 1.5rem;
 }
+
+// Media queries
 
 @media only screen and (max-width: 959px) {
     .footer-clock {

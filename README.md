@@ -11,4 +11,4 @@ NOTE 4 MEDIA QUERIES:
 
 
 SISI TO-DO:
--Belajar Sass & tambahin animasi sass ke .learn-more-button
+-Tambahin animasi ke button
