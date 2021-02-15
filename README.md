@@ -12,4 +12,4 @@ NOTE 4 MEDIA QUERIES:
 
 SISI TO-DO:
 -Tambahin css drawing(?)
--Bikin page kontak kami
+-Selesain page kontak kami
