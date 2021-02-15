@@ -1,10 +1,16 @@
 $bgLight:#eaeaea;
 $bgDark:#2b2a2a;
+$textLight: #f5f5f5;
 $hoverColor:rgb(0, 153, 255) !important;
+
+@mixin round($radius) {
+    border-radius: 50%;
+}
 
 body {
     background-color: $bgLight;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    z-index: -3;
 }
 
 /* Navbar */
@@ -69,18 +75,104 @@ body {
 }
 
 .center-button {
-    display: flexbox;
+    display: flex;
     position: absolute;
     bottom: -11.5%;
-    left: 42.5%;
+    left: 43%;
+    z-index: 1;
 }
 
 .learn-more-button {
     background-color: $bgLight;
     border: none;
-    border-radius: 50%;
+    @include round(50%);
     height: 8rem;
     width: 8rem;
+    position: relative;
+    transition: 0.3s;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: rgba(153, 153, 153, 0.1);
+        color: $textLight;
+        -webkit-animation: button-up 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: button-up 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    &::after {
+        content: '';
+        background-image: url(./images/arrow.png);
+        height: 4rem;
+        width: 4rem;
+        position: absolute;
+        bottom: -0.6rem;
+        right: 1.85rem;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        transform: translateY(2.4rem);
+    }
+}
+
+.animated {
+    -webkit-animation: button-down 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: button-down 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes button-up {
+    from {
+        -webkit-transform: translateY(0);
+    }
+
+    to {
+        -webkit-transform: translateY(-2.4rem)
+    }
+}
+
+@keyframes button-up {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-2.4rem)
+    }
+}
+
+@-webkit-keyframes button-down {
+    from {
+        -webkit-transform: translateY(-2.4rem);
+    }
+
+    to {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes button-down {
+    from {
+        transform: translateY(-2.4rem);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+#left-circle {
+    position: absolute;
+    transition: 0.3s;
+}
+
+#right-circle {
+    position: absolute;
+    transition: 0.3s;
 }
 
 #hidden-div {
@@ -90,6 +182,7 @@ body {
     position: relative;
     text-align: center;
     z-index: -10;
+
     p {
         margin: 0 15%;
         vertical-align: middle;
@@ -104,13 +197,13 @@ body {
 }
 
 .border-radius {
-    border-radius: 50%;
+    @include round(50%);
 }
 
 /* Footer */
 
 .homepage-footer {
-    color: #f5f5f5;
+    color: $textLight;
     background-color: $bgDark;
     line-height: 218%;
 }
@@ -119,18 +212,22 @@ body {
     display: flexbox;
     margin-left: 3rem;
     padding: 3rem;
+
     ul {
         list-style-type: none;
         padding: 1rem 0 0 0;
     }
+
     a {
-        color: #f5f5f5;
+        color: $textLight;
         font-size: 0.95rem;
         text-decoration: none;
+
         &:hover {
             color: $hoverColor;
         }
     }
+
     hr {
         width: 10rem;
     }

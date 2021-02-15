@@ -7,8 +7,9 @@ RAROT TO-DO:
 -Buat media queries biar websitenya mobile friendly
 
 NOTE 4 MEDIA QUERIES:
-    - navbar udh, jd tinggal content lain ke bawah kecuali footer
+    - semuanya kecuali navbar & footer
 
 
 SISI TO-DO:
--Tambahin animasi ke button
+-Tambahin css drawing(?)
+-Bikin page kontak kami

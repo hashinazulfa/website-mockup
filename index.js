@@ -1,4 +1,4 @@
-// var x = document.getElementById("hidden-div");
+$(".learn-more-button").on("mouseover", addAnim);
 
 function toggleDiv() {
     if ($("#hidden-div").css("display") === "none") {
@@ -10,4 +10,9 @@ function toggleDiv() {
             $("#hidden-div").hide();
         });
     };
+};
+
+function addAnim() {
+    $(".learn-more-button").addClass("animated");
+    $(".learn-more-button").off("mouseover", addAnim);
 };
