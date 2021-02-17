@@ -7,6 +7,15 @@ $hoverColor:rgb(0, 153, 255);
     border-radius: 50%;
 }
 
+@mixin border() {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin vertica() {
+    width: 2px;
+}
+
 body {
     background-color: $bgLight;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -255,6 +264,45 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 .iframe-clock {
     position: relative;
     top: 1.5rem;
+}
+
+// Page Kontak Kami
+
+.contact-line {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.border-vertical-top {
+    background: linear-gradient(to bottom, $bgLight, #00adb5);
+    @include border();
+    @include vertica();
+}
+
+.border-vertical-bottom {
+    background: linear-gradient(to top, $bgLight, #00adb5);
+    @include border();
+    @include vertica();
+}
+
+.border-horizontal {
+    background: linear-gradient(to right, $bgLight 0%, #00adb5 50%, $bgLight 100%);
+    @include border();
+    height: 2px;
+}
+
+.credit p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.icons8-link {
+    color: #00adb5;
+    text-decoration: none;
 }
 
 // Media queries
