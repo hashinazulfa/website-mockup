@@ -1,3 +1,21 @@
+$(".navbar-toggler").click(function() {
+    if ($(".navbar-dropdown").css("display") === "none") {
+        if ($(".no-bg").length > 0) {
+            $(".no-bg").addClass("bg-light");
+        };
+        $(".navbar-dropdown").slideDown(400, function() {
+            $(".navbar-dropdown").show();
+        });
+    } else {
+        $(".navbar-dropdown").slideUp(400, function() {
+            $(".navbar-dropdown").hide();
+            if ($(".no-bg").length > 0) {
+                $(".no-bg").removeClass("bg-light");
+            };
+        });
+    };
+});
+
 function toggleDiv() {
     if ($("#hidden-div").css("display") === "none") {
         $(".learn-more-button").addClass("slide-up");

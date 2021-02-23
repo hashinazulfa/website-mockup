@@ -6,7 +6,7 @@ $themeBlue: #00adb5;
 $bgStyling: rgba(0, 173, 181, 0.5);
 
 @mixin round($radius) {
-    border-radius: 50%;
+    border-radius: $radius;
 }
 
 @mixin border() {
@@ -22,6 +22,11 @@ body {
 // Beranda
 /* Navbar */
 
+.bg-light {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
 .corner-logo {
     display: flex;
     float: left;
@@ -32,11 +37,16 @@ body {
 .no-bg {
     position: absolute;
     width: 100%;
-    z-index: 5;
+    z-index: 1;
 }
 
-div.collapse > ul.navbar-nav > li.nav-adjustments {
+.navbar-toggler:focus {
+    outline: none;
+}
+
+div#nav-main > ul > li.nav-adjustments {
     display: flex;
+    list-style-type: none;
     text-align: center;
     padding: 1.5rem 2.5rem;
 
@@ -45,11 +55,38 @@ div.collapse > ul.navbar-nav > li.nav-adjustments {
     }
 }
 
-div.collapse > ul.navbar-nav > li.active > a.nav-link {
+div > ul > li.active > a.nav-link {
     color: #5d98b8;
+
     &:hover {
         color: $hoverColor;
     }
+}
+
+.navbar-dropdown {
+    display: none;
+    position: absolute;
+    top: 6.3rem;
+    left: 0;
+    width: 100%;
+
+    ul {
+        li {
+            list-style-type: none;
+
+            a {
+                color: rgba(0, 0, 0, 0.55);
+
+                &:hover {
+                    color: $hoverColor;
+                }
+            }
+        }
+    }
+}
+
+.dropdown-divider {
+    width: 97%;
 }
 
 /* Homepage Picture Section & About Us */
@@ -91,7 +128,7 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
     position: absolute;
     bottom: 8%;
     left: 43%;
-    z-index: 6;
+    z-index: 2;
 }
 
 .learn-more-button {
@@ -198,7 +235,7 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 .wrapper {
     position: absolute;
     top: 39rem;
-    z-index: 5;
+    z-index: 1;
     transition: 0.5s;
 }
 
@@ -239,7 +276,6 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 }
 
 .footer-navigation {
-    display: flexbox;
     margin-left: 3rem;
     padding: 3rem;
 
@@ -264,15 +300,14 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 }
 
 .footer-line {
-    display: flex;
+    border-top: 0.3rem solid $themeBlue;
+    display: block;
     position: relative;
     top: 0.2rem;
     width: 8rem;
-    border-top: 0.3rem solid $themeBlue;
 }
 
 .footer-clock {
-    display: flexbox;
     padding: 3rem;
 }
 
@@ -325,5 +360,11 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 @media only screen and (max-width: 959px) {
     .footer-clock {
         margin-left: 3rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #nav-main {
+        display: none;
     }
 }
