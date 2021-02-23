@@ -1,18 +1,21 @@
-$(".learn-more-button").on("mouseover", addAnim);
-
 function toggleDiv() {
     if ($("#hidden-div").css("display") === "none") {
-        $("#hidden-div").slideDown("slow", function() {
-            $("#hidden-div").show();
+        $(".learn-more-button").addClass("slide-up");
+        $(".wrapper").addClass("slide-down");
+        $(".hidden-bg").fadeIn("fast", function() {
+            $(".hidden-bg").show();
+            $("#hidden-div").fadeIn("fast", function() {
+                $("#hidden-div").show();
+            });
         });
     } else {
-        $("#hidden-div").slideUp("slow", function() {
-            $("#hidden-div").hide();
+        $(".learn-more-button").removeClass("slide-up");
+        $(".wrapper").removeClass("slide-down");
+        $(".hidden-bg").fadeOut("fast", function() {
+            $(".hidden-bg").hide();
+            $("#hidden-div").fadeOut("fast", function() {
+                $("#hidden-div").hide();
+            });
         });
     };
-};
-
-function addAnim() {
-    $(".learn-more-button").addClass("animated");
-    $(".learn-more-button").off("mouseover", addAnim);
 };

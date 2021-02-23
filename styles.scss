@@ -2,7 +2,8 @@ $bgLight:#eaeaea;
 $bgDark:#2b2a2a;
 $textLight: #f5f5f5;
 $hoverColor:rgb(0, 153, 255);
-$transparent: rgba(255, 0, 0, 0);
+$themeBlue: #00adb5;
+$bgStyling: rgba(0, 173, 181, 0.5);
 
 @mixin round($radius) {
     border-radius: 50%;
@@ -13,15 +14,12 @@ $transparent: rgba(255, 0, 0, 0);
     padding: 0;
 }
 
-@mixin vertica() {
-    width: 2px;
-}
-
 body {
     background-color: $bgLight;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+// Beranda
 /* Navbar */
 
 .corner-logo {
@@ -29,6 +27,12 @@ body {
     float: left;
     margin: 1rem;
     width: 16rem;
+}
+
+.no-bg {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
 }
 
 div.collapse > ul.navbar-nav > li.nav-adjustments {
@@ -42,7 +46,7 @@ div.collapse > ul.navbar-nav > li.nav-adjustments {
 }
 
 div.collapse > ul.navbar-nav > li.active > a.nav-link {
-    color: #000;
+    color: #5d98b8;
     &:hover {
         color: $hoverColor;
     }
@@ -51,38 +55,29 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 /* Homepage Picture Section & About Us */
 
 .homepage-pic {
-    color: #00adb5;
+    color: $themeBlue;
     position: relative;
 }
 
 .giant-pic {
     display: inline-block;
-    height: 84vh;
+    height: 115vh;
     width: 100%;
-}
-
-.img-box-shadow {
-    box-shadow: inset 0 0.8rem 0.6rem -0.4rem #ffffff;
-    position: absolute;
-    height: 84vh;
-    width: 100%;
-    top: 0;
-    left: 0;
 }
 
 .homepage-textbox {
-    background: linear-gradient(to left, rgba(0, 173, 181, 0.5) 50%, $transparent 50%);
-    height: 19rem;
+    background: linear-gradient(to right, $bgStyling 50%, transparent 50%);
+    height: 18rem;
     width: 40rem;
     position: absolute;
-    right: 5rem;
-    top: 8rem;
+    left: 5rem;
+    top: 10rem;
 
     #pic-text {
         font-family: Georgia, Times, 'Times New Roman', serif;
         position: inherit;
-        top: 8rem;
-        left: 9rem;
+        top: 7.5rem;
+        left: 10rem;
         
         .white-font {
             color: $textLight;
@@ -94,102 +89,103 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 .center-button {
     display: flex;
     position: absolute;
-    bottom: -10%;
+    bottom: 8%;
     left: 43%;
-    z-index: 1;
+    z-index: 6;
 }
 
 .learn-more-button {
     background-color: $bgLight;
     border: none;
     @include round(50%);
-    font-size: 1.3rem;
-    height: 10rem;
-    width: 10rem;
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 8rem;
+    width: 8rem;
     position: relative;
-    transition: 0.3s;
+    transition: 0.5s;
 
     &:focus {
+        background-color: $bgLight;
         outline: none;
     }
 
     &:hover {
         background-color: rgba(153, 153, 153, 0.1);
-        color: $textLight;
-        -webkit-animation: button-up 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-        animation: button-up 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        color: $themeBlue;
+    }
+
+    &::before {
+        content: '';
+        border: #999999 solid 0.2rem;
+        border-radius: 50% 50% 50% 0;
+        height: 10rem;
+        width: 10rem;
+        position: absolute;
+        opacity: 0;
     }
 
     &::after {
         content: '';
-        background-image: url(./images/arrow1.png);
-        height: 8rem;
-        width: 8rem;
+        background-image: url(./images/arrow.png);
+        display: inline-block;
+        height: 4rem;
+        width: 4rem;
         position: absolute;
-        bottom: -1.7rem;
-        right: 1.2rem;
+        bottom: 0;
+        right: 2.05rem;
         opacity: 0;
-        transition: 0.3s;
+        transition: 0.5s;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
     }
 
     &:hover::after {
         opacity: 1;
-        transform: translateY(2.6rem);
+        -webkit-transform: translateY(2.6rem) rotate(45deg);
+        transform: translateY(2.6rem) rotate(45deg);
     }
 }
 
-.animated {
-    -webkit-animation: button-down 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    animation: button-down 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.slide-down {
+    -webkit-transform: translateY(7.5rem);
+    transform: translateY(7.5rem);
 }
 
-@-webkit-keyframes button-up {
-    from {
-        -webkit-transform: translateY(0);
-    }
-
-    to {
-        -webkit-transform: translateY(-3rem)
-    }
+.slide-up {
+    -webkit-transform: translateY(-7.2rem);
+    transform: translateY(-7.2rem);
 }
 
-@keyframes button-up {
-    from {
-        transform: translateY(0);
+.hidden-bg {
+    display: none;
+    position: absolute;
+    bottom: 0;
+
+    .left-triangle {
+        border-left: 54rem solid transparent;
+        border-bottom: 14rem solid $bgStyling;
+        position: inherit;
+        bottom: 0;
+        left: -13.7rem;
     }
 
-    to {
-        transform: translateY(-3rem)
-    }
-}
-
-@-webkit-keyframes button-down {
-    from {
-        -webkit-transform: translateY(-3rem);
-    }
-
-    to {
-        -webkit-transform: translateY(0);
-    }
-}
-
-@keyframes button-down {
-    from {
-        transform: translateY(-3rem);
-    }
-
-    to {
-        transform: translateY(0);
+    .right-triangle {
+        border-right: 58.5rem solid transparent;
+        border-bottom: 14rem solid $bgStyling;
+        position: inherit;
+        bottom: 0;
+        left: 40.3rem;
     }
 }
 
 #hidden-div {
-    background-color: $transparent;
+    background-color: transparent;
+    color: $textLight;
     display: none;
-    padding: 10% 5% 5% 5%;
-    position: relative;
+    position: absolute;
+    bottom: 0;
     text-align: center;
-    z-index: -10;
 
     p {
         margin: 0 15%;
@@ -199,9 +195,35 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 
 /* Carousel & Company Profile */
 
+.wrapper {
+    position: absolute;
+    top: 39rem;
+    z-index: 5;
+    transition: 0.5s;
+}
+
 .carousel-profile {
     background-color: $bgLight;
-    padding: 5rem 3rem 3rem;
+    padding: 8rem 4rem 6rem 4rem;
+    text-align: center;
+}
+
+#myCarousel, .carousel-inner {
+    margin: auto;
+    height: 100%;
+    width: 50%;
+}
+
+.carousel-indicators li {
+    background-color: $themeBlue;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300adb5' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300adb5' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 .border-radius {
@@ -246,7 +268,7 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
     position: relative;
     top: 0.2rem;
     width: 8rem;
-    border-top: 0.3rem solid #00adb5;
+    border-top: 0.3rem solid $themeBlue;
 }
 
 .footer-clock {
@@ -271,19 +293,19 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 }
 
 .border-vertical-top {
-    background: linear-gradient(to bottom, $bgLight, #00adb5);
+    background: linear-gradient(to bottom, $bgLight, $themeBlue);
     @include border();
-    @include vertica();
+    width: 2px;
 }
 
 .border-vertical-bottom {
-    background: linear-gradient(to top, $bgLight, #00adb5);
+    background: linear-gradient(to top, $bgLight, $themeBlue);
     @include border();
-    @include vertica();
+    width: 2px;
 }
 
 .border-horizontal {
-    background: linear-gradient(to right, $bgLight 0%, #00adb5 50%, $bgLight 100%);
+    background: linear-gradient(to right, $bgLight 0%, $themeBlue 50%, $bgLight 100%);
     @include border();
     height: 2px;
 }
@@ -294,7 +316,7 @@ div.collapse > ul.navbar-nav > li.active > a.nav-link {
 }
 
 .icons8-link {
-    color: #00adb5;
+    color: $themeBlue;
     text-decoration: none;
 }
 
