@@ -23,8 +23,8 @@ body {
 /* Navbar */
 
 .bg-light {
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .corner-logo {
@@ -55,7 +55,7 @@ div#nav-main > ul > li.nav-adjustments {
     }
 }
 
-div > ul > li.active > a.nav-link {
+nav.navbar > div.container-fluid > div > ul > li.active > a.nav-link {
     color: #5d98b8;
 
     &:hover {
@@ -132,14 +132,15 @@ div > ul > li.active > a.nav-link {
 }
 
 .learn-more-button {
+    @include round(50%);
     background-color: $bgLight;
     border: none;
-    @include round(50%);
     font-size: 1.2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     height: 8rem;
     width: 8rem;
     position: relative;
+    -webkit-transition: 0.5s;
     transition: 0.5s;
 
     &:focus {
@@ -152,16 +153,6 @@ div > ul > li.active > a.nav-link {
         color: $themeBlue;
     }
 
-    &::before {
-        content: '';
-        border: #999999 solid 0.2rem;
-        border-radius: 50% 50% 50% 0;
-        height: 10rem;
-        width: 10rem;
-        position: absolute;
-        opacity: 0;
-    }
-
     &::after {
         content: '';
         background-image: url(./images/arrow.png);
@@ -172,6 +163,7 @@ div > ul > li.active > a.nav-link {
         bottom: 0;
         right: 2.05rem;
         opacity: 0;
+        -webkit-transition: 0.5s;
         transition: 0.5s;
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
@@ -234,7 +226,7 @@ div > ul > li.active > a.nav-link {
 
 .wrapper {
     position: absolute;
-    top: 39rem;
+    top: 37rem;
     z-index: 1;
     transition: 0.5s;
 }
@@ -358,6 +350,10 @@ div > ul > li.active > a.nav-link {
 // Media queries
 
 @media only screen and (max-width: 959px) {
+    #pic-text {
+        left: 9rem;
+    }
+
     .footer-clock {
         margin-left: 3rem;
     }
